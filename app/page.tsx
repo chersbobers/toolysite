@@ -66,13 +66,13 @@ export default function Home() {
     { label: "Home", href: "#home" },
     { label: "Setup", href: "#setup" },
     { label: "About", href: "#about" },
-    { label: "GitHub", href: "https://github.com/chersbobers" },
+    { label: "GitHub", href: "https://github.com" },
   ]
 
   return (
     <ClickSpark sparkColor="#00ff88" sparkSize={12} sparkRadius={20} sparkCount={12} duration={500}>
       <main className="relative min-h-screen w-full overflow-hidden bg-[#0a0a0f]">
-        {/* Modern Bayer Dithering PixelBlast Background */}
+        {/* PixelBlast Bayer Dithering Background */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <PixelBlast
             variant="circle"
@@ -95,19 +95,31 @@ export default function Home() {
           />
         </div>
 
+        <PillNav
+          logo="/pixel-art-avatar-small.jpg"
+          logoAlt="Tooly Bot Logo"
+          items={navItems}
+          baseColor="#9b59b6"
+          pillColor="#1a1a1a"
+          hoveredPillTextColor="#ffffff"
+          pillTextColor="#e0e0e0"
+          ease="power3.out"
+          initialLoadAnimation={true}
+        />
+
         {/* Animated gradient orbs */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
 
         {/* ASCII Text Hero */}
-        <div id="home" className="relative h-[50vh] w-full">
+        <div id="home" className="relative h-[50vh] w-full z-10">
           <ASCIIText
-            text="Tooly Bot"
+            text="chersbobers"
             asciiFontSize={6}
             textFontSize={120}
             textColor="#00ff88"
             planeBaseHeight={8}
-            enableWaves={false}
+            enableWaves={true}
           />
         </div>
 
@@ -120,7 +132,7 @@ export default function Home() {
         {/* Setup Sections */}
         <div id="setup" className="relative z-10 max-w-5xl mx-auto px-4 py-12 space-y-8">
           {/* Code Setup Section */}
-          <div className="bg-[#1a1a1a] border border-[#333] rounded-lg p-8">
+          <div className="bg-[#1a1a1a] border border-[#333] rounded-lg p-8 backdrop-blur-md bg-opacity-80">
             <h2 className="text-3xl font-bold text-[#9b59b6] mb-6">Code Setup</h2>
             <div className="space-y-4">
               <div className="bg-[#0f0f0f] border-l-4 border-[#9b59b6] p-4 rounded">
@@ -157,7 +169,7 @@ export default function Home() {
           </div>
 
           {/* Discord Bot Setup Section */}
-          <div className="bg-[#1a1a1a] border border-[#333] rounded-lg p-8">
+          <div className="bg-[#1a1a1a] border border-[#333] rounded-lg p-8 backdrop-blur-md bg-opacity-80">
             <h2 className="text-3xl font-bold text-[#9b59b6] mb-6">Discord Bot Setup</h2>
             <div className="space-y-4">
               <div className="bg-[#0f0f0f] border-l-4 border-[#9b59b6] p-4 rounded">
@@ -207,7 +219,7 @@ export default function Home() {
           </div>
 
           {/* Success Banner */}
-          <div className="bg-[#9b59b6] rounded-lg p-6 text-center">
+          <div className="bg-[#9b59b6] rounded-lg p-6 text-center shadow-lg backdrop-blur-md bg-opacity-90">
             <p className="text-xl font-bold text-white">
               BOOM your done have fun (commands can take up to 1hr to cache)
             </p>
