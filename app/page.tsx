@@ -6,6 +6,7 @@ import LogoLoop from "@/components/logo-loop"
 import ASCIIText from "@/components/ascii-text"
 import ProfileCard from "@/components/profile-card"
 import PillNav from "@/components/pill-nav"
+import PixelBlast from "@/components/PixelBlast"
 
 export default function Home() {
   const [showCard, setShowCard] = useState(false)
@@ -65,47 +66,32 @@ export default function Home() {
     { label: "Home", href: "#home" },
     { label: "Setup", href: "#setup" },
     { label: "About", href: "#about" },
-    { label: "GitHub", href: "https://github.com" },
+    { label: "GitHub", href: "https://github.com/chersbobers" },
   ]
 
   return (
     <ClickSpark sparkColor="#00ff88" sparkSize={12} sparkRadius={20} sparkCount={12} duration={500}>
       <main className="relative min-h-screen w-full overflow-hidden bg-[#0a0a0f]">
-        <PillNav
-          logo="/pixel-art-avatar-small.jpg"
-          logoAlt="Tooly Bot Logo"
-          items={navItems}
-          baseColor="#9b59b6"
-          pillColor="#1a1a1a"
-          hoveredPillTextColor="#ffffff"
-          pillTextColor="#e0e0e0"
-          ease="power3.out"
-          initialLoadAnimation={true}
-        />
-
-        {/* Pixel art background pattern */}
-        <div className="absolute inset-0 opacity-20">
-          <div
-            className="h-full w-full"
-            style={{
-              backgroundImage: `
-                repeating-linear-gradient(
-                  0deg,
-                  transparent,
-                  transparent 4px,
-                  rgba(0, 255, 136, 0.03) 4px,
-                  rgba(0, 255, 136, 0.03) 8px
-                ),
-                repeating-linear-gradient(
-                  90deg,
-                  transparent,
-                  transparent 4px,
-                  rgba(0, 255, 136, 0.03) 4px,
-                  rgba(0, 255, 136, 0.03) 8px
-                )
-              `,
-              imageRendering: "pixelated",
-            }}
+        {/* Modern Bayer Dithering PixelBlast Background */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <PixelBlast
+            variant="circle"
+            pixelSize={6}
+            color="#B19EEF"
+            patternScale={3}
+            patternDensity={1.2}
+            pixelSizeJitter={0.5}
+            enableRipples
+            rippleSpeed={0.4}
+            rippleThickness={0.12}
+            rippleIntensityScale={1.5}
+            liquid
+            liquidStrength={0.12}
+            liquidRadius={1.2}
+            liquidWobbleSpeed={5}
+            speed={0.6}
+            edgeFade={0.25}
+            transparent
           />
         </div>
 
@@ -116,12 +102,12 @@ export default function Home() {
         {/* ASCII Text Hero */}
         <div id="home" className="relative h-[50vh] w-full">
           <ASCIIText
-            text="chersbobers"
+            text="Tooly Bot"
             asciiFontSize={6}
             textFontSize={120}
             textColor="#00ff88"
             planeBaseHeight={8}
-            enableWaves={true}
+            enableWaves={false}
           />
         </div>
 
